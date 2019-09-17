@@ -30,6 +30,13 @@ class wordclock_display:
         self.wci = wci
         self.config = config
 
+        # Initialize the NeoPixel object
+        self.strip.begin()
+
+        self.default_fg_color = wcc.WWHITE
+        self.default_bg_color = wcc.BLACK
+        self.base_path = config.get('wordclock', 'base_path')
+
         try:
             default_brightness = config.getint('wordclock_display', 'brightness')
         except:
@@ -57,13 +64,6 @@ class wordclock_display:
             else:
                 self.default_font = os.path.join('/usr/share/fonts/truetype/freefont/',
 												 config.get('wordclock_display', 'default_font') + '.ttf')
-
-        # Initialize the NeoPixel object
-        self.strip.begin()
-
-        self.default_fg_color = wcc.WWHITE
-        self.default_bg_color = wcc.BLACK
-        self.base_path = config.get('wordclock', 'base_path')
 
         # Choose language
         try:
