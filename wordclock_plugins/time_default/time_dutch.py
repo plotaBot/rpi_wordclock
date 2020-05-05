@@ -66,11 +66,13 @@ class time_dutch:
 
     def get_time(self, time, purist):
         hour=time.hour%12+(1 if time.minute/5 > 3 else 0)
-        minute=time.minute/5
+        minute=int(time.minute/5)
+        halfh = minute == 0 or minute == 6
+        pre = (self.prefix if not purist or halfh else [])
         # Assemble indices
         return  \
-            (self.prefix if not purist else []) + \
-            self.minutes[int(minute)] + \
+            pre + \
+            self.minutes[minute] + \
             self.hours[hour] + \
             (self.full_hour if (minute == 0) else [])
 
