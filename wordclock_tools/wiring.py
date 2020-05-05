@@ -126,9 +126,9 @@ class bernds_wiring:
         elif min == 2:
             return 1
         elif min == 3:
-            return self.LED_COUNT - 2
-        elif min == 4:
             return 0
+        elif min == 4:
+            return self.LED_COUNT - 2
         else:
             print('WARNING: Out of range, when mapping minutes...')
             print(min)
