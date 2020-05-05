@@ -17,7 +17,10 @@ class wiring:
         except:
             # For backward compatibility
             language = ''.join(config.get('plugin_time_default', 'language'))
-        stencil_content = ast.literal_eval(config.get('language_options', language))
+        #get the right stencil for swabian or bavarian
+        german_deriv = language == 'swabian' or language == 'bavarian'
+        stencil = 'german' if german_deriv else ('german2' if language == 'swabian2' else language)
+        stencil_content = ast.literal_eval(config.get('language_options', stencil))
         self.WCA_HEIGHT = len(stencil_content)
         self.WCA_WIDTH = len(stencil_content[0])
         self.LED_COUNT = self.WCA_WIDTH * self.WCA_HEIGHT + 4  # Number of LED pixels.

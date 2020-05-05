@@ -21,11 +21,11 @@ GObject.threads_init()
 
 
 class GTKstrip(threading.Thread):
-    def __init__(self, weh):
+    def __init__(self, weh, chars):
         super(GTKstrip, self).__init__()
         self.label = "GTKstrip"
 
-        chars = "ESKISTLFÜNFZEHNZWANZIGDREIVIERTELTGNACHVORJMHALBQZWÖLFPZWEINSIEBENKDREIRHFÜNFELFNEUNVIERWACHTZEHNRSBSECHSFMUHR...."
+        #chars = "ESKISTLFÜNFZEHNZWANZIGDREIVIERTELTGNACHVORJMHALBQZWÖLFPZWEINSIEBENKDREIRHFÜNFELFNEUNVIERWACHTZEHNRSBSECHSFMUHR...."
 
         self.labels = []
         self.colors = []
