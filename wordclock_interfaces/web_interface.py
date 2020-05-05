@@ -3,6 +3,8 @@ import _thread
 from flask_restplus import Api, Resource, fields
 import wordclock_tools.wordclock_colors as wcc
 
+# TODO: add config page
+# TODO: add update page
 
 class web_interface:
     app = Flask(__name__)

@@ -3,6 +3,7 @@ import pywapi
 import time
 import wordclock_tools.wordclock_colors as wcc
 
+# TODO: refactor to a new(er) package
 
 class plugin:
     """
