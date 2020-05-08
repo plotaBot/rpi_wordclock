@@ -66,9 +66,6 @@ class GTKstrip(threading.Thread):
 
             label.show()
 
-        # TODO: add Gtk.button or Gtk.adjust and Gtk.spinbuttton
-        #  <https://python-gtk-3-tutorial.readthedocs.io/en/latest/button_widgets.html>
-
         color = Gdk.color_parse('#000000')
         self.win.modify_bg(Gtk.StateType.NORMAL, color)
         self.win.add(table)
