@@ -30,7 +30,7 @@ class wordclock_display:
         self.wci = wci
         self.config = config
         self.base_path = config.get('wordclock', 'base_path')
-        max_brightness = 255
+        max_brightness = 150
 
         try:
             self.setBrightness(config.getint('wordclock_display', 'brightness'))
