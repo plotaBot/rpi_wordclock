@@ -2,6 +2,7 @@ import ConfigParser
 from importlib import import_module
 import netifaces
 import inspect
+import traceback
 import logging
 import os
 import subprocess
@@ -100,6 +101,8 @@ class wordclock:
                 index += 1
             except:
                 logging.warning('Failed to import plugin ' + plugin + '!')
+                # detailed error (traceback)
+                traceback.print_exc(limit=1)
 
         # Create object to interact with the wordclock using the interface of your choice
         self.plugin_index = 0
@@ -128,6 +131,8 @@ class wordclock:
         except:
             logging.error('Error in plugin ' + self.plugins[self.plugin_index].name + '.')
             logging.error('PLEASE PROVIDE THE CURRENT SOFTWARE VERSION (GIT HASH), WHEN REPORTING THIS ERROR: ' + self.currentGitHash)
+            # detailed error (traceback)
+            traceback.print_exc()
             self.wcd.setImage(os.path.join(self.pathToGeneralIcons, 'error.png'))
             raise
 
