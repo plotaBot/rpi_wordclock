@@ -54,6 +54,7 @@ class plugin:
             self.purist = False
 
         # sleep mode
+        logging.info('hour: ' + str(config.getint('plugin_' + self.name, 'sleep_begin_hour')))
         try:
             self.sleep_begin = datetime.time(config.getint('plugin_' + self.name, 'sleep_begin_hour'),config.getint('plugin_' + self.name, 'sleep_begin_minute'),0)
         except:
