@@ -143,15 +143,14 @@ class wordclock:
                 while True:
                     # The showIcon-command expects to have a plugin logo available
                     self.wcd.showIcon(plugin=self.plugins[self.plugin_index].name, iconName='logo')
-                    time.sleep(self.wci.lock_time)
-                    evt = self.wci.waitForEvent()
+                    evt = self.wci.waitForEvent(self.wci.lock_time)
                     if evt == self.wci.EVENT_BUTTON_LEFT:
                         self.plugin_index -= 1
                         if self.plugin_index == -1:
                             self.plugin_index = len(self.plugins) - 1
-                        time.sleep(self.wci.lock_time)
+                        #time.sleep(self.wci.lock_time)
                     if evt == self.wci.EVENT_BUTTON_RETURN:
-                        time.sleep(self.wci.lock_time)
+                        #time.sleep(self.wci.lock_time)
                         break
                     if evt == self.wci.EVENT_EXIT_PLUGIN or evt == self.wci.EVENT_NEXT_PLUGIN_REQUESTED:
                         break
@@ -159,7 +158,7 @@ class wordclock:
                         self.plugin_index += 1
                         if self.plugin_index == len(self.plugins):
                             self.plugin_index = 0
-                        time.sleep(self.wci.lock_time)
+                        #time.sleep(self.wci.lock_time)
 
 
 if __name__ == '__main__':
